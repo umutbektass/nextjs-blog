@@ -13,7 +13,7 @@ export const metadata = {
   description: 'The best blog app!',
 }
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>

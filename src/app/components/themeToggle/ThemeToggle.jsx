@@ -4,14 +4,11 @@ import styles from './themeToggle.module.css'
 import Image from 'next/image'
 import { ThemeContext } from '@/app/context/ThemeContext'
 const ThemeToggle = () => {
-  const {theme} = useContext(ThemeContext)
-  console.log(theme)
-
-
+  const {theme,toggle} = useContext(ThemeContext)
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container}`} onClick={toggle} style={theme=='dark' ? {background:'white'} : {background:''}}>
       <Image src={'/moon.png'} alt='moon' width={18} height={18} />
-      <div className={styles.ball}></div>
+      <div className={styles.ball} style={theme=='dark' ? {left:0,background:'#0f172a'} : {right:0,background:'white'}}></div>
       <Image src={'/sun.png'} alt='sun' width={24} height={24} />
     </div>
   )
