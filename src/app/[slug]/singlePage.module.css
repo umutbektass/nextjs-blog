@@ -1,0 +1,101 @@
+.container{
+
+}
+
+.infoContainer{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.textContainer{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.title{
+
+    font-size: 48px;
+    margin-bottom: 50px;
+}
+
+.user{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.userImageContainer{
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+.userImageContainer .avatar{
+    border-radius: 50%;
+}
+
+.userTextContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: var(--softTextColor);
+}
+
+.userName{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.imgContainer{
+    flex: 1;
+    height: 350px;
+    position: relative;
+}
+.image{
+    object-fit: cover;
+}
+
+
+.content{
+    display: flex;
+}
+
+.post{
+    flex: 5;
+    margin-top: 60px;
+}
+
+.description p{
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.description h2{
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width:1024px){
+    .imgContainer{
+          display: none;
+    }   
+}
+@media screen and (max-width:768px){
+    .title{
+            font-size: 40px;
+    }   
+}
+
+@media screen and (max-width:640px){
+    .title{
+            font-size: 36px;
+    }  
+    .description p{
+        font-size: 17px;
+        font-weight: 300;
+        margin-bottom: 20px;
+    }
+    
+}
