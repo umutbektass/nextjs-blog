@@ -83,4 +83,17 @@ a {
       max-width: 475px;
     }
   }
+
+  .quill{
+    width: 100%;
+  }
+
+  .quill .ql-container{
+    font-size: 24px;
+  }
+
+  .ql-editor.ql-blank::before{
+    color: #b3b3b1 !important;
+  }
+
   
