@@ -48,10 +48,11 @@ model User {
   email         String    @unique
   emailVerified DateTime?
   image         String?
-  Account       Account[]
-  Session       Session[]
-  Post          Post[]
-  Comment       Comment[]
+  account       Account[]
+  session       Session[]
+
+  Post    Post[]
+  Comment Comment[]
 }
 
 model Category {
@@ -74,7 +75,7 @@ model Post {
   cat       Category  @relation(fields: [catSlug], references: [slug])
   userEmail String
   user      User      @relation(fields: [userEmail], references: [email])
-  Comment   Comment[]
+  comments  Comment[]
 }
 
 model Comment {

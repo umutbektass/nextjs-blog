@@ -2,24 +2,27 @@ import React from 'react'
 import styles from './card.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
-const Card = () => {
+const Card = ({key,item}) => {
+
+  const formatCreationDate = ()=>{
+      const newDate = new Date(item.createdAt)
+      return newDate.toLocaleDateString()
+  }
   return (
-    <div className={styles.container}>
+    <div className={styles.container} key={key}>
         <div className={styles.imgContainer}>
-    <Image className={styles.image} src="/p1.jpeg" alt='' fill/>
+    <Image className={styles.image} src={item.img || "/p1.jpeg" }  alt='' fill/>
       </div>
       <div className={styles.textContainer}>
     <div className={styles.detail}>
-    <span className={styles.date}>19.09.2024 - </span>
-    <span className={styles.category}>Culture</span>
+    <span className={styles.date}>{formatCreationDate()} - </span>
+    <span className={styles.category}>{item.catSlug}</span>
     </div>
     <Link href={'/'}>
-    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+    <h1>{item.title}</h1>
     </Link>
     <p className={styles.desc}>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-         Fugit libero, repellendus odio voluptatibus quam natus cumque 
-         nihil, ut eius facilis, corporis voluptatum atque sunt deserunt?...
+       {item.desc}
     </p>
     <Link className={styles.link} href={'/'}>Read More</Link>
       </div>
