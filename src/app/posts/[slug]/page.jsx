@@ -1,9 +1,23 @@
 import React from "react";
 import styles from "./singlePage.module.css";
-import Menu from "../components/menu/Menu";
+import Menu from "../../components/menu/Menu";
 import Image from "next/image";
-import Comments from "../components/comments/Comments";
-const SinglePage = ({ params }) => {
+import Comments from "../../components/comments/Comments";
+
+const getData = async(slug)=>{
+  const res = fetch(`${process.env.API_URL}/api/posts/${slug}`,{
+    cache:"no-store"
+  })
+  if(!res.ok){
+   throw new Error("Error")
+  }
+  return res.json()
+}
+
+const SinglePage = async({ params }) => {
+  const {slug} = params
+  const data = await getData(slug)
+  console.log("data",data)
   return (
     <div className={styles.container}>
       <div className={styles.infoContainer}>

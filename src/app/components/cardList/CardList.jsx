@@ -5,8 +5,8 @@ import Card from './card/Card'
 
 
 
-const getData = async(pageIndex)=>{
-  const res = await fetch(`${process.env.API_URL}/api/posts?page=${pageIndex}`,{
+const getData = async(pageIndex,cat)=>{
+  const res = await fetch(`${process.env.API_URL}/api/posts?page=${pageIndex}&cat=${cat || ""}`,{
     cache:'no-store'
   })
   if(!res){
@@ -18,8 +18,8 @@ const getData = async(pageIndex)=>{
 
 
 
-const CardList = async({pageIndex}) => {
-  const {posts,count} = await getData(pageIndex)
+const CardList = async({pageIndex,cat}) => {
+  const {posts,count} = await getData(pageIndex,cat)
   const POST_PER_PAGE=2
   const hasPrev = POST_PER_PAGE * (pageIndex - 1)>0
   const hasNext = POST_PER_PAGE * (pageIndex  - 1) + POST_PER_PAGE < count
