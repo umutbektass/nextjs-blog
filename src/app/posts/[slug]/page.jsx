@@ -54,7 +54,7 @@ const SinglePage = async ({ params }) => {
             dangerouslySetInnerHTML={{ __html: data?.desc }}
           />
           <div className={styles.comments}>
-            <Comments postSlug={params} />
+            <Comments postSlug={slug} />
           </div>
         </div>
         <Menu />
